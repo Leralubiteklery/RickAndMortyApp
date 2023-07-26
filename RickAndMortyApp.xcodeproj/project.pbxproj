@@ -14,6 +14,7 @@
 		ED9810512A7034E8002857D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED98104F2A7034E8002857D5 /* LaunchScreen.storyboard */; };
 		ED9810592A703EDF002857D5 /* CharactersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9810582A703EDF002857D5 /* CharactersListTableViewController.swift */; };
 		EDA885C82A71751B0007DCC7 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA885C72A71751B0007DCC7 /* Character.swift */; };
+		EDA885CA2A717A2C0007DCC7 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA885C92A717A2C0007DCC7 /* CharacterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		ED9810522A7034E8002857D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED9810582A703EDF002857D5 /* CharactersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListTableViewController.swift; sourceTree = "<group>"; };
 		EDA885C72A71751B0007DCC7 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		EDA885C92A717A2C0007DCC7 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,8 @@
 		ED9810432A7034E6002857D5 /* RickAndMortyApp */ = {
 			isa = PBXGroup;
 			children = (
+				EDA885C92A717A2C0007DCC7 /* CharacterCell.swift */,
+				EDA885CB2A717A9E0007DCC7 /* Views */,
 				EDA885C62A7175100007DCC7 /* Models */,
 				EDA885C12A71747B0007DCC7 /* App */,
 				EDA885C22A71749E0007DCC7 /* Storyboards */,
@@ -108,6 +112,13 @@
 				EDA885C72A71751B0007DCC7 /* Character.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EDA885CB2A717A9E0007DCC7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +195,7 @@
 				ED9810452A7034E6002857D5 /* AppDelegate.swift in Sources */,
 				EDA885C82A71751B0007DCC7 /* Character.swift in Sources */,
 				ED9810592A703EDF002857D5 /* CharactersListTableViewController.swift in Sources */,
+				EDA885CA2A717A2C0007DCC7 /* CharacterCell.swift in Sources */,
 				ED9810472A7034E6002857D5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

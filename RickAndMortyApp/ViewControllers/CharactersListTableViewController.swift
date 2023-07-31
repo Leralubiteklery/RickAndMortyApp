@@ -17,26 +17,38 @@ class CharactersListTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         listOfCharacters.count
     }
 
  
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "characterCell", for: indexPath)
+        guard
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "characterCell",
+                for: indexPath
+            ) as? CharacterCell
+        else {
+            return UITableViewCell()
+        }
         let character = listOfCharacters[indexPath.row]
+        cell.configure(with: character)
+        
         return cell
     }
+}
 
-
-    
-    // MARK: - Navigation
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+//    MARK: - Networking
+extension CharactersListTableViewController {
+    func fetchCaracters() {
+        NetworkManager.shared.fetch([Character].self, from: "https://rickandmortyapi.com/api/character") { [weak self] result in
+            switch result{
+            case .success(let listOfCharacters):
+                self?.listOfCharacters = listOfCharacters
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
-    */
-
 }

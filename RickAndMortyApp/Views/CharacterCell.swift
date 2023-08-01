@@ -9,8 +9,16 @@ import UIKit
 
 class CharacterCell: UITableViewCell {
     
+//    MARK: - IBOutlets
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var characterImage: UIImageView!
+    @IBOutlet var characterImage: UIImageView! {
+        didSet {
+            characterImage.contentMode = .scaleAspectFit
+            characterImage.clipsToBounds = true
+            characterImage.layer.cornerRadius = characterImage.frame.height / 2
+            characterImage.backgroundColor = .white
+        }
+    }
     
     func configure(with character: Character) {
         nameLabel.text = character.name

@@ -9,7 +9,7 @@ import UIKit
 
 class CharactersListTableViewController: UITableViewController {
     
-    private var listOfCharacters: [Character] = []
+    private var listOfCharacters: ListOfCharacters?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,7 @@ class CharactersListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        listOfCharacters.count
+        listOfCharacters?.results.count ?? 0
     }
 
  
@@ -31,24 +31,9 @@ class CharactersListTableViewController: UITableViewController {
         else {
             return UITableViewCell()
         }
-        let character = listOfCharacters[indexPath.row]
+        guard let character = listOfCharacters?.results[indexPath.row] else { return UITableViewCell() }
         cell.configure(with: character)
-        
         return cell
     }
 }
 
-//    MARK: - Networking
-extension CharactersListTableViewController {
-    func fetchCaracters() {
-        NetworkManager.shared.fetch([Character].self, from: "https://rickandmortyapi.com/api/character") { [weak self] result in
-            switch result{
-            case .success(let listOfCharacters):
-                self?.listOfCharacters = listOfCharacters
-                self?.tableView.reloadData()
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-}

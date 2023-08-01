@@ -9,7 +9,7 @@ import UIKit
 
 class CharacterCell: UITableViewCell {
     
-//    MARK: - IBOutlets
+    //    MARK: - IBOutlets
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var characterImage: UIImageView! {
         didSet {
@@ -20,6 +20,7 @@ class CharacterCell: UITableViewCell {
         }
     }
     
+    //    MARK: - Private Methods
     func configure(with character: Character) {
         nameLabel.text = character.name
         
@@ -31,8 +32,8 @@ class CharacterCell: UITableViewCell {
                 print(error)
             }
         }
-        }
     }
+}
 
 
 

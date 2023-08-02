@@ -8,37 +8,48 @@
 import UIKit
 
 class CharactersListTableViewController: UITableViewController {
-    
+    //    MARK: - Private Properties
     private var listOfCharacters: ListOfCharacters?
-
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var filteredCharacters: [Character] = []
+    private var searchBarIsEmprty: Bool {
+        guard let text = searchController.searchBar.text else { return false}
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchBarIsEmprty
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.rowHeight = 70
         tableView.backgroundColor = .black
         fetchData(from: Link.rickAndMortyAPI.rawValue)
+        
+        setupSearchController()
     }
-
+    
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        listOfCharacters?.results.count ?? 0
+        isFiltering ? filteredCharacters.count : listOfCharacters?.results.count ?? 0
     }
-
- 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: "characterCell",
                 for: indexPath
-            ) as? CharacterCell
-        else {
+            ) as? CharacterCell else {
             return UITableViewCell()
         }
-        guard let character = listOfCharacters?.results[indexPath.row] else { return UITableViewCell() }
+        let character = isFiltering
+        ? filteredCharacters[indexPath.row]
+        : listOfCharacters?.results[indexPath.row]
         cell.configure(with: character)
         return cell
     }
     
-//    MARK: - Private Methods
+    //    MARK: - Private Methods
     private func fetchData(from url: String?) {
         NetworkManager.shared.fetch(ListOfCharacters.self, from: url) { [weak self] result in
             switch result {
@@ -50,5 +61,35 @@ class CharactersListTableViewController: UITableViewController {
             }
         }
     }
+    
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        searchController.searchBar.tintColor = .white
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
+        if let textField = searchController.searchBar.value(forKey: "searchField") as? UITextField {
+            textField.font = UIFont.boldSystemFont(ofSize: 17)
+            textField.textColor = .white
+        }
+    }
+}
+
+// MARK: - UISearchResultsUpdating
+extension CharactersListTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+        filteredCharacters = listOfCharacters?.results.filter({ character in
+            character.name.lowercased().contains(searchText.lowercased())
+        }) ?? []
+        
+        tableView.reloadData()
+    }
+    
 }
 

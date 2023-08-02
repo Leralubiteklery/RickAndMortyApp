@@ -21,10 +21,10 @@ class CharacterCell: UITableViewCell {
     }
     
     //    MARK: - Private Methods
-    func configure(with character: Character) {
-        nameLabel.text = character.name
+    func configure(with character: Character?) {
+        nameLabel.text = character?.name
         
-        NetworkManager.shared.fetchImage(from: character.image) { [weak self] result in
+        NetworkManager.shared.fetchImage(from: character?.image) { [weak self] result in
             switch result {
             case .success(let imageData):
                 self?.characterImage.image = UIImage(data: imageData)

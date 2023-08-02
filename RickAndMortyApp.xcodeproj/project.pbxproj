@@ -62,13 +62,13 @@
 		ED9810432A7034E6002857D5 /* RickAndMortyApp */ = {
 			isa = PBXGroup;
 			children = (
+				EDA885C42A7174CE0007DCC7 /* ViewControllers */,
 				EDA885CC2A7180D00007DCC7 /* Services */,
 				EDA885CB2A717A9E0007DCC7 /* Views */,
 				EDA885C62A7175100007DCC7 /* Models */,
 				EDA885C12A71747B0007DCC7 /* App */,
 				EDA885C22A71749E0007DCC7 /* Storyboards */,
 				EDA885C52A7175080007DCC7 /* Resources */,
-				EDA885C42A7174CE0007DCC7 /* ViewControllers */,
 			);
 			path = RickAndMortyApp;
 			sourceTree = "<group>";

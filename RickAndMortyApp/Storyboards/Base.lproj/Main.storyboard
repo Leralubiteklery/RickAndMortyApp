@@ -3,11 +3,12 @@
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Characters List Table View Controller-->
         <scene sceneID="OgI-0T-WZQ">
             <objects>
                 <tableViewController id="mel-am-b6N" customClass="CharactersListTableViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,6 +51,7 @@
                                 <connections>
                                     <outlet property="characterImage" destination="Z78-FK-fZb" id="Emb-Vp-DDO"/>
                                     <outlet property="nameLabel" destination="YDQ-FZ-SDc" id="pmb-AY-Qqe"/>
+                                    <segue destination="5qW-Vd-J2K" kind="show" id="Btu-MV-QZH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -58,7 +60,18 @@
                             <outlet property="delegate" destination="mel-am-b6N" id="E7Q-eS-DTI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="XbK-YP-e1s"/>
+                    <navigationItem key="navigationItem" id="XbK-YP-e1s">
+                        <barButtonItem key="leftBarButtonItem" title="Prev" id="UxN-qH-4tz">
+                            <connections>
+                                <action selector="updateData:" destination="mel-am-b6N" id="aaI-et-hjt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" tag="1" title="Next" id="2xZ-Y2-p0q">
+                            <connections>
+                                <action selector="updateData:" destination="mel-am-b6N" id="AQ8-mN-jd4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O6S-4m-THj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -68,8 +81,8 @@
         <scene sceneID="Tmu-IB-7af">
             <objects>
                 <navigationController id="Jt5-U5-EiY" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Goi-R6-RFZ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Goi-R6-RFZ">
+                        <rect key="frame" x="0.0" y="20" width="320" height="92.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -79,6 +92,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AfN-EF-Qrh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-36" y="-239"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="vTB-HY-aYB">
+            <objects>
+                <viewController id="5qW-Vd-J2K" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G9e-XV-9h3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Nsg-my-hoH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="gna-RR-Kvl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MTQ-VL-7zT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1416" y="-241"/>
         </scene>
     </scenes>
     <resources>

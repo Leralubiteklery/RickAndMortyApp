@@ -27,6 +27,7 @@ class CharactersListTableViewController: UITableViewController {
         fetchData(from: Link.rickAndMortyAPI.rawValue)
         
         setupSearchController()
+        setupNavigationBar()
     }
     
     // MARK: - Table view data source
@@ -49,6 +50,11 @@ class CharactersListTableViewController: UITableViewController {
         return cell
     }
     
+    @IBAction func updateData(_ sender: UIBarButtonItem) {
+        sender.tag == 1
+        ? fetchData(from: listOfCharacters?.info.next)
+        : fetchData(from: listOfCharacters?.info.prev)
+    }
     //    MARK: - Private Methods
     private func fetchData(from url: String?) {
         NetworkManager.shared.fetch(ListOfCharacters.self, from: url) { [weak self] result in
@@ -74,6 +80,18 @@ class CharactersListTableViewController: UITableViewController {
             textField.font = UIFont.boldSystemFont(ofSize: 17)
             textField.textColor = .white
         }
+    }
+    
+    private func setupNavigationBar() {
+        title = "Rick & Morty"
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.backgroundColor = .black
+        navigationBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        navigationController?.navigationBar.standardAppearance = navigationBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = navigationBarAppearance
     }
 }
 

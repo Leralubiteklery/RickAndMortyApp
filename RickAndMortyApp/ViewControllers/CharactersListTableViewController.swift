@@ -49,6 +49,15 @@ class CharactersListTableViewController: UITableViewController {
         cell.configure(with: character)
         return cell
     }
+//    MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        let character = isFiltering
+        ? filteredCharacters[indexPath.row]
+        : listOfCharacters?.results[indexPath.row]
+        guard let detailVC = segue.destination as? CharacterDetailsViewController else { return }
+        detailVC.character = character
+    }
     
     @IBAction func updateData(_ sender: UIBarButtonItem) {
         sender.tag == 1

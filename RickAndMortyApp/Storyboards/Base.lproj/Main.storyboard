@@ -108,9 +108,9 @@
                                     <constraint firstAttribute="height" constant="240" id="gb5-le-WNe"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iX4-pc-sli">
-                                <rect key="frame" x="20" y="408.5" width="280" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iX4-pc-sli">
+                                <rect key="frame" x="20" y="408.5" width="280" height="28"/>
+                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -133,7 +133,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="characterImage" destination="mgO-Cq-A5E" id="k1O-14-jhP"/>
-                        <outlet property="descriptionImage" destination="iX4-pc-sli" id="FT4-4h-AkK"/>
+                        <outlet property="descriptionLabel" destination="iX4-pc-sli" id="FT4-4h-AkK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTQ-VL-7zT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

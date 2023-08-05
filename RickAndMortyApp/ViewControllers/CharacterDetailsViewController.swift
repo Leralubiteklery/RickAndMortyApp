@@ -15,15 +15,27 @@ class CharacterDetailsViewController: UIViewController {
             characterImage.layer.cornerRadius = characterImage.frame.height / 2
         }
     }
-    @IBOutlet weak var descriptionImage: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
 //    MARK: - Public properties
-    var charachter: Character!
+    var character: Character!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        if let topItem = navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        title = character.name
+        descriptionLabel.text = character.description
+        NetworkManager.shared.fetchImage(from: self.character.image) { result in
+            switch result {
+            case .success(let imageData):
+                self.characterImage.image = UIImage(data: imageData)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
 

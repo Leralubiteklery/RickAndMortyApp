@@ -40,6 +40,12 @@ class CharacterDetailsViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navigationController = segue.destination as? UINavigationController else { return }
+        guard let episodesVC = navigationController.topViewController as? EpisodesViewController else { return }
+        episodesVC.character = character
+    }
+    
     private func showSpinner(in view: UIView) {
         spinnerView = UIActivityIndicatorView(style: .large)
         spinnerView.color = .white

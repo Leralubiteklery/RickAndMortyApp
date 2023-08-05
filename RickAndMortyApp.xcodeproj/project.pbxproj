@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ED113AFE2A7E385F00EF8E6A /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED113AFD2A7E385F00EF8E6A /* CharacterDetailsViewController.swift */; };
+		ED113B002A7E561700EF8E6A /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED113AFF2A7E561700EF8E6A /* EpisodesViewController.swift */; };
 		ED9810452A7034E6002857D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9810442A7034E6002857D5 /* AppDelegate.swift */; };
 		ED9810472A7034E6002857D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED9810462A7034E6002857D5 /* SceneDelegate.swift */; };
 		ED98104C2A7034E6002857D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED98104A2A7034E6002857D5 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		ED113AFD2A7E385F00EF8E6A /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
+		ED113AFF2A7E561700EF8E6A /* EpisodesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		ED9810412A7034E6002857D5 /* RickAndMortyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED9810442A7034E6002857D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ED9810462A7034E6002857D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				ED9810582A703EDF002857D5 /* CharactersListTableViewController.swift */,
 				ED113AFD2A7E385F00EF8E6A /* CharacterDetailsViewController.swift */,
+				ED113AFF2A7E561700EF8E6A /* EpisodesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				ED113AFE2A7E385F00EF8E6A /* CharacterDetailsViewController.swift in Sources */,
 				EDA885CE2A7181090007DCC7 /* NetworkManager.swift in Sources */,
+				ED113B002A7E561700EF8E6A /* EpisodesViewController.swift in Sources */,
 				ED9810452A7034E6002857D5 /* AppDelegate.swift in Sources */,
 				EDA885C82A71751B0007DCC7 /* Character.swift in Sources */,
 				ED9810592A703EDF002857D5 /* CharactersListTableViewController.swift in Sources */,

@@ -129,7 +129,11 @@
                         <centerItemGroups>
                             <barButtonItemGroup customizationDisposition="fixed" id="q7c-YK-lMQ"/>
                         </centerItemGroups>
-                        <barButtonItem key="rightBarButtonItem" title="Episodes" id="7dA-mb-cxA"/>
+                        <barButtonItem key="rightBarButtonItem" title="Episodes" id="7dA-mb-cxA">
+                            <connections>
+                                <segue destination="318-7f-HjF" kind="presentation" id="cY5-ct-KDY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="characterImage" destination="mgO-Cq-A5E" id="k1O-14-jhP"/>
@@ -139,6 +143,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTQ-VL-7zT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1416" y="-241"/>
+        </scene>
+        <!--Episodes-->
+        <scene sceneID="850-7E-K2M">
+            <objects>
+                <tableViewController id="eWS-q0-lxD" customClass="EpisodesViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="pOR-tZ-j7M">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="episode" id="aXw-cg-RwR">
+                                <rect key="frame" x="0.0" y="50" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aXw-cg-RwR" id="Zig-zQ-gOQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3B-e9-plt">
+                                            <rect key="frame" x="16" y="11" width="288" height="22"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.089407272057324266" green="0.028503345276118641" blue="0.18315371862455221" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <constraints>
+                                        <constraint firstItem="S3B-e9-plt" firstAttribute="centerY" secondItem="Zig-zQ-gOQ" secondAttribute="centerY" id="QPF-Uc-fsZ"/>
+                                        <constraint firstAttribute="trailing" secondItem="S3B-e9-plt" secondAttribute="trailing" constant="16" id="gp4-m7-eit"/>
+                                        <constraint firstItem="S3B-e9-plt" firstAttribute="leading" secondItem="Zig-zQ-gOQ" secondAttribute="leading" constant="16" id="iRV-wY-Zy1"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.039215686274509803" green="0.013004117116363593" blue="0.083560451737106023" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eWS-q0-lxD" id="ulT-tU-gad"/>
+                            <outlet property="delegate" destination="eWS-q0-lxD" id="16V-Cx-ytZ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Episodes" id="mzb-Qs-eVk"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iEO-Lz-024" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2870.625" y="-242.95774647887325"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="08c-tC-AXJ">
+            <objects>
+                <navigationController id="318-7f-HjF" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cYU-Xv-vVX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eWS-q0-lxD" kind="relationship" relationship="rootViewController" id="xdl-FM-EtY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ye-IF-Rov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2145" y="-240"/>
         </scene>
     </scenes>
     <resources>

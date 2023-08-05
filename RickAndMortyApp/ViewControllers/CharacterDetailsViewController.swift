@@ -17,27 +17,37 @@ class CharacterDetailsViewController: UIViewController {
     }
     @IBOutlet weak var descriptionLabel: UILabel!
     
-//    MARK: - Public properties
     var character: Character!
+    
+    private var spinnerView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let topItem = navigationController?.navigationBar.topItem {
             topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         }
+        showSpinner(in: view)
         title = character.name
         descriptionLabel.text = character.description
         NetworkManager.shared.fetchImage(from: self.character.image) { result in
             switch result {
             case .success(let imageData):
                 self.characterImage.image = UIImage(data: imageData)
-                
+                self.spinnerView.stopAnimating()
             case .failure(let error):
                 print(error)
             }
         }
     }
     
+    private func showSpinner(in view: UIView) {
+        spinnerView = UIActivityIndicatorView(style: .large)
+        spinnerView.color = .white
+        spinnerView.center = characterImage.center
+        spinnerView.hidesWhenStopped = true
+        
+        view.addSubview(spinnerView)
+    }
 
     
 }

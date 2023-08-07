@@ -59,4 +59,15 @@ class EpisodesViewController: UITableViewController {
         }
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let episode = episodes[indexPath.row]
+        performSegue(withIdentifier: "showEpisode", sender: episode)
+    }
+    
+//    MARK: - Naviagtion
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let episodeDetailsVC = segue.destination as? EpisodeDetailsViewController else { return }
+        episodeDetailsVC.episode = sender as? Episode
+    }
 }

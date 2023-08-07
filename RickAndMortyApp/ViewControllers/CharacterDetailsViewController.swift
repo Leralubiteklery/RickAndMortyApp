@@ -54,6 +54,4 @@ class CharacterDetailsViewController: UIViewController {
         
         view.addSubview(spinnerView)
     }
-
-    
 }

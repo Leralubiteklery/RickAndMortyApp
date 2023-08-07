@@ -189,7 +189,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iEO-Lz-024" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2870.625" y="-242.95774647887325"/>
+            <point key="canvasLocation" x="2876" y="-243"/>
         </scene>
         <!--Episode Details View Controller-->
         <scene sceneID="Oev-Rc-9sa">
@@ -276,11 +276,12 @@
                     <connections>
                         <outlet property="episodeDescriptionLabel" destination="CLR-rj-0Tv" id="JF8-o4-erd"/>
                         <outlet property="tableView" destination="gWN-EF-MSI" id="cQK-Qt-Gr2"/>
+                        <segue destination="B0z-EG-79A" kind="show" identifier="showCharacter" id="ECX-2F-6uc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jlD-z0-Nbk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3605.625" y="-240.8450704225352"/>
+            <point key="canvasLocation" x="3600" y="-243"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="08c-tC-AXJ">
@@ -297,6 +298,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ye-IF-Rov" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2145" y="-240"/>
+        </scene>
+        <!--Character Details View Controller-->
+        <scene sceneID="19c-PE-GCy">
+            <objects>
+                <viewController id="B0z-EG-79A" customClass="CharacterDetailsViewController" customModule="RickAndMortyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fwj-Vi-VDD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9kp-43-Ojg">
+                                <rect key="frame" x="40" y="72" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="0i3-dR-NCM"/>
+                                    <constraint firstAttribute="height" constant="240" id="MRS-MO-GYx"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENE-rl-odj">
+                                <rect key="frame" x="20" y="352" width="280" height="28"/>
+                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qwl-s5-RE2"/>
+                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <constraints>
+                            <constraint firstItem="9kp-43-Ojg" firstAttribute="top" secondItem="qwl-s5-RE2" secondAttribute="top" constant="16" id="UVy-um-AxT"/>
+                            <constraint firstItem="qwl-s5-RE2" firstAttribute="trailing" secondItem="ENE-rl-odj" secondAttribute="trailing" constant="20" id="iGF-xt-WAX"/>
+                            <constraint firstItem="9kp-43-Ojg" firstAttribute="centerX" secondItem="qwl-s5-RE2" secondAttribute="centerX" id="kYk-wx-xiH"/>
+                            <constraint firstItem="ENE-rl-odj" firstAttribute="top" secondItem="9kp-43-Ojg" secondAttribute="bottom" constant="40" id="tOi-1O-juc"/>
+                            <constraint firstItem="ENE-rl-odj" firstAttribute="leading" secondItem="qwl-s5-RE2" secondAttribute="leading" constant="20" id="zCw-kO-Rd4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WXa-S2-58b">
+                        <centerItemGroups>
+                            <barButtonItemGroup customizationDisposition="fixed" id="HBz-v5-rq0"/>
+                        </centerItemGroups>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="characterImage" destination="9kp-43-Ojg" id="UmK-vx-DFH"/>
+                        <outlet property="descriptionLabel" destination="ENE-rl-odj" id="Yrw-md-S7U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F99-EA-vjE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4341" y="-240"/>
         </scene>
     </scenes>
     <resources>

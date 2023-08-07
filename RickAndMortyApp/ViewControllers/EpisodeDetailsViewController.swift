@@ -35,6 +35,11 @@ class EpisodeDetailsViewController: UIViewController {
         episodeDescriptionLabel.text = episode.description
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let characterDetailsVC = segue.destination as? CharacterDetailsViewController else { return }
+        characterDetailsVC.character = sender as? Character
+    }
+    
     private func setCharacters() {
         episode.characters.forEach { characterURL in
             NetworkManager.shared.fetch(Character.self, from: characterURL) { [weak self] result in
@@ -47,7 +52,6 @@ class EpisodeDetailsViewController: UIViewController {
             }
         }
     }
-  
 }
 
 // MARK: - Table view data source
@@ -68,6 +72,15 @@ extension EpisodeDetailsViewController: UITableViewDataSource {
             }
         }
         return cell
+    }
+}
+
+//MARK: - table view delegate
+extension EpisodeDetailsViewController:UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let character = characters[indexPath.row]
+        performSegue(withIdentifier: "showCharacter", sender: character)
     }
 }
 
